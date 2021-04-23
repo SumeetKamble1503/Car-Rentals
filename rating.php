@@ -16,25 +16,7 @@
 
         
 
-    //     $username = $_SESSION['username'];
-        
-    //     $strk = "SELECT * from users where username = '$username' ";
-    //     $resultk = ExecuteQuery($strk);
-    //     $rowk = mysqli_fetch_assoc($resultk);
-    //     $useridd = $rowk['id'];
-
-    // }
-    // else{
-    
-    //     $mysqli = new mysqli('localhost' ,'root','', 'accounts');
-    //     $username = $_SESSION['username'];
-        
-    //     $strk = "SELECT * from users where username = '$username' ";
-    //     $resultk = ExecuteQuery($strk);
-    //     $rowk = mysqli_fetch_assoc($resultk);
-    //     $useridd = $rowk['id'];
-
-    // }
+   
     
 
     
