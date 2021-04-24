@@ -45,20 +45,23 @@
         // echo $rating;
         // echo $tripid;
         // echo $carid;
+
         $sql = "UPDATE alltrips SET triprating = $rating WHERE tripid = $tripid";
         $result = ExecuteQuery($sql);
         
-        $sql = "SELECT AVG(triprating) as average FROM alltrips WHERE carid = '$carid'";
-        $result = ExecuteQuery($sql);
-        $row = mysqli_fetch_assoc($result);
+        // trigger updates the rating
+        
+        // $sql = "SELECT AVG(triprating) as average FROM alltrips WHERE carid = '$carid'";
+        // $result = ExecuteQuery($sql);
+        // $row = mysqli_fetch_assoc($result);
 
-        //echo $rating;
-        $avg = $row['average'];
-        //echo $avg;
+        // //echo $rating;
+        // $avg = $row['average'];
+        // //echo $avg;
 
 
-        $sql = "UPDATE cars SET carrating = $avg WHERE carid = $carid";
-        $result = ExecuteQuery($sql);
+        // $sql = "UPDATE cars SET carrating = $avg WHERE carid = $carid";
+        // $result = ExecuteQuery($sql);
 
         header("location: viewtransaction.php");
 

@@ -50,10 +50,8 @@
                     <?php 
                         include 'functionsignup.php';
                         session_start();
-                                
-                        $str = "SELECT * from cars where availability = 'A'";
+                        $str ="call displayAvailableCars('A')";
                         $result=ExecuteQuery($str);
-                        // $row = mysqli_fetch_assoc($result);
                         $no_rows = mysqli_num_rows($result);
                         if($result){
                             echo "<h2>  No. of Cars Available : ";

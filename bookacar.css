@@ -122,6 +122,31 @@ hr{
 }
 
 
-.sorting{
+.sorting2{
     font-size: 20px;
+}
+
+.button2{
+    position: absolute;
+    top: 11.5%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.btn2{
+    margin-left: 10px;
+    border: 1px solid white;
+    padding: 10px 30px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn2:hover{
+    color: black;
+    background-color: white;
+}
+
+.active2{
+    color: black;
+    background-color: white;
 }

@@ -1,34 +1,18 @@
-
+<!-- <link rel = "stylesheet" href = "signup.css"> -->
+<link rel = "stylesheet" href = "admin.css">
 <?php 
-    include 'functionsignup.php';
     session_start(); 
-    if($_GET['id']){
-        $variable = $_GET['id'];
-        // echo $variable;
-    }
-    else{
-     
-        $mysqli = new mysqli('localhost' ,'root','', 'accounts');
-        $username = $_SESSION['username'];
-        // echo $username;
-
-        $strk = "SELECT * from users where username = '$username' ";
-        $resultk = ExecuteQuery($strk);
-        $rowk = mysqli_fetch_assoc($resultk);
-        $variable = $rowk['id'];
-
-    }
+    include 'functionsignup.php';
     if($_SESSION['loggedin'] == true){
-        if($_SESSION['username'] == "admin" )
-            {
-                $_SESSION['loggedin'] = false;
-                header("location: login.php");
-            }
+        // $avatar = $_SESSION['avatar'];       
+        // $username = $_SESSION['username'];             
+        // echo $avatar;
+        // echo $username;
+        //die();
     }
     else{   
         header("location: login.php");
     }
-    
                                   
            
 ?>
@@ -37,19 +21,17 @@
         <link rel = "stylesheet" href = "admin.css">
         <link rel = "stylesheet" href = "bookacar.css">
         <link rel = "stylesheet" href = "profile.css">
-        <!-- <link rel="stylesheet" href="signup.css" type="text/css"> -->
-        
     </head> 
     <body>
         <div class="mainpage">
             <div class="navbar">
                         <ul>
-                            <!-- <li><a href="homepage.html"> Home </a></li> -->
-                            <li> <a href="profile.php"> Profile </a></li>
-                            <li> <a href="bookacar.php"> Book A Car </a></li>
-                            <li> <a href="wallet.php"> Wallet </a></li>
-                            <li> <a href="viewoffers.php"> Offers </a></li>
-                            <li class="active"><a href="viewtransaction.php"> Transaction History </a></li>
+                            <li class="active"><a href="admin.php"> Admin Home </a></li>
+                            <li><a href="alltrips.php"> All Trips </a></li>
+                            <li> <a href="addcars.php"> Add Cars </a></li>
+                            <li> <a href="carlist.php"> Cars List </a></li>
+                            <li> <a href="addoffers.php"> Add Offers </a></li>
+                            <li> <a href="offerlist.php"> Offers List </a></li>
                         </ul>
             </div>
             <div class="navbar2">
@@ -59,14 +41,15 @@
                         <li><a href="logout.php"> Logout </a></li>
                     </ul>
             </div>
+            <h1>ADMIN HOMEPAGE</h1>
 
             <div class="sorting2">
                     <div class="button2">
                         <b>
-                            <a href="viewtransaction.php" class="btn2 active2"> Total Expenditure (All Trips) : 
+                            <a href="admin.php" class="btn2 "> (Default ALL ) Total Money Earned : 
                                 <?php 
                                     $mysqli = new mysqli('localhost' ,'root','', 'accounts');
-                                    $strr = "SELECT SUM(costoftrip) as cash FROM transaction where userid = '$variable'";
+                                    $strr = "SELECT SUM(costoftrip) as cash FROM transaction";
                                     $resultr = ExecuteQuery($strr);
                                     $row = mysqli_fetch_assoc($resultr);
                                     $cash = $row['cash'];
@@ -74,9 +57,9 @@
                                 ?>
                             </a>  
                         </b>   
-                            <a href="viewtransactiontoday.php" class="btn2 ">Today</a>
-                            <a href="viewtransactionweek.php" class="btn2 ">Last Week</a> 
-                            <a href="viewtransactionmonth.php" class="btn2 ">Last month</a>                                                            
+                            <a href="admintoday.php" class="btn2 ">Today</a>
+                            <a href="adminweek.php" class="btn2 ">Last Week</a> 
+                            <a href="adminmonth.php" class="btn2 active2">Last month</a>                                                            
                     </div>
             </div>
 
@@ -86,19 +69,12 @@
                         
                         $mysqli = new mysqli('localhost' ,'root','', 'accounts');
 
-                        $strk = "SELECT getUserid('$username') as id";
-                        $resultk = ExecuteQuery($strk);
-                        $rowk = mysqli_fetch_assoc($resultk);
-                        $variable = $rowk['id'];
-
-                        
-
-                        $strr = "call displayallUserTransactions($variable)";
+                        $strr = "call adminDisplayTransaction(30)";
                         $resultr = ExecuteQuery($strr);
                         $no_rows = mysqli_num_rows($resultr);
 
                         if($no_rows == 0){
-                            echo "<h2>  NO Previous Transactions were Done on this Account: ";
+                            echo "<h2>  NO Transactions : ";
                             echo $no_rows;
                             echo "</h2>";
                         }
@@ -118,6 +94,7 @@
                                     $tripid = $row['tripid'];
                                     $cost = $row['costoftrip'];
                                     $time = $row['timestampTransaction'];
+                                    $id = $row['userid'];
                                     
                                     echo "Transaction ID : ";
                                     echo $tid;
@@ -125,6 +102,10 @@
 
                                     echo "Booking ID : ";
                                     echo $tripid;
+                                    echo " <b>|</b> ";
+
+                                    echo "User ID : ";
+                                    echo $id;
                                     echo " <b>|</b> ";
 
                                     echo "Transaction Timestamp : ";
@@ -144,9 +125,10 @@
 
                 </div>
             </div>
-            
         </div>
+        
     </body>
+    
 </html>
 
 

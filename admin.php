@@ -43,10 +43,10 @@
             </div>
             <h1>ADMIN HOMEPAGE</h1>
 
-            <div class="sorting">
-                    <div class="button1">
+            <div class="sorting2">
+                    <div class="button2">
                         <b>
-                            <a href="admin.php" class="btn1 active">Total Money Earned : 
+                            <a href="admin.php" class="btn2 active2"> (Default ALL ) Total Money Earned : 
                                 <?php 
                                     $mysqli = new mysqli('localhost' ,'root','', 'accounts');
                                     $strr = "SELECT SUM(costoftrip) as cash FROM transaction";
@@ -56,7 +56,10 @@
                                     echo $cash;
                                 ?>
                             </a>  
-                        </b>                                                              
+                        </b>   
+                            <a href="admintoday.php" class="btn2 ">Today</a>
+                            <a href="adminweek.php" class="btn2 ">Last Week</a> 
+                            <a href="adminmonth.php" class="btn2 ">Last month</a>                                                            
                     </div>
             </div>
 
@@ -66,7 +69,8 @@
                         
                         $mysqli = new mysqli('localhost' ,'root','', 'accounts');
 
-                        $strr = "SELECT * FROM transaction";
+                        $strr = "call adminDisplayTransaction(0)";
+                        //$strr = "SELECT * FROM transaction";
                         $resultr = ExecuteQuery($strr);
                         $no_rows = mysqli_num_rows($resultr);
 

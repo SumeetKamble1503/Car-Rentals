@@ -13,10 +13,13 @@
             $avatar_path = $mysqli->real_escape_string('images/'.$_FILES['avatar']['name']);
 //
 // checks if username is already registered or not
-            $str = " SELECT * FROM users where username = '$username' or email = '$email' ";
+
+            $str = " SELECT checkuser('$username','$email') as numRows ";
             $result=ExecuteQuery($str);
-            $no_rows = mysqli_num_rows($result);
-            if($no_rows > 0){
+            $row = mysqli_fetch_assoc($result);
+
+            $numRows = $row['numRows'];
+            if($numRows > 0){
                 $_SESSION['message'] = 'User Already Exist with this Credentials';
             }
             else{

@@ -49,10 +49,7 @@
                 <?php 
                     include 'functionsignup.php';
                     // session_start();
-                    // $current_timestamp = time();
-                    //echo $current_timestamp;
-
-                    // $time = DATE_TRUNC(‘[]’, time_column); 
+                    
                     $username = $_SESSION['username'];
                     // echo $username;
 
@@ -71,6 +68,7 @@
 
                     if($no_rows == 1)
                     {
+                        //error
                         header("location: profile.php");
                     }
                     else

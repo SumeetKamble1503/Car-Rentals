@@ -92,7 +92,8 @@
 
                         $bookingid = $rowr['tripid'];    
                         $userid = $rowr['userid'];
-                        $timestamp = $rowr['timestampbook'];
+                        $tripstart = $rowr['timestampbook'];
+                        $tripend = $rowr['timestampreturn'];
                         $carid = $rowr['carid'];
 
                         //echo $variable;
@@ -123,8 +124,12 @@
                             echo $carid;
                             echo " <b>|</b> ";
 
-                            echo "Journey Start : ";
-                            echo $timestamp;
+                            echo "Trip Start : ";
+                            echo $tripstart;
+                            echo " <b>|</b> ";
+
+                            echo "Trip End : ";
+                            echo $tripend;
                             echo " <b>|</b> ";
 
                             $strsk = "SELECT * from cars where carid = '$carid' ";

@@ -59,17 +59,28 @@
 
                         }
 
-                        $strr = "SELECT * from alltrips where userid = '$useridd' and completed = 'U' ";
+                        $strr = "SELECT getTripidFromT('$useridd','U') as tripid";
                         $resultr = ExecuteQuery($strr);
                         $rowr = mysqli_fetch_assoc($resultr);
                         
                         $bookingid = $rowr['tripid'];
+
+                        $strr = "SELECT getCaridFromT('$useridd','U') as carid";
+                        $resultr = ExecuteQuery($strr);
+                        $rowr = mysqli_fetch_assoc($resultr);
                         $carid = $rowr['carid'];
+
+                        $strr = "SELECT getDistFromT('$useridd','U') as tripdist";
+                        $resultr = ExecuteQuery($strr);
+                        $rowr = mysqli_fetch_assoc($resultr);
+
                         $dist = $rowr['tripdist'];    
                         
+
                         $strrr = "SELECT * from cars where carid = '$carid'";
                         $resultrr = ExecuteQuery($strrr);
                         $rowrr = mysqli_fetch_assoc($resultrr);
+
                         $disttravelled = $rowrr['cardist'];
                         echo $disttravelled;
                         $disttravelled += $dist; 
@@ -85,8 +96,14 @@
                         $sql = "INSERT INTO transaction (tripid , userid , costoftrip)" . "VALUES ( '$bookingid' , '$useridd' ,$costoftrip )";
                         $result = ExecuteQuery($sql);
 
-                        $str = "UPDATE alltrips SET completed = 'R' where userid = '$useridd' and completed = 'U'";
-                        $result = ExecuteQuery($str);
+                        $sql = "SELECT * FROM transaction where tripid = '$bookingid'";
+                        $result = ExecuteQuery($sql);
+                        $row = mysqli_fetch_assoc($result);
+                        $timeend = $row['timestampTransaction'];
+
+
+                        // $str = "UPDATE alltrips SET completed = 'R' , timestampreturn = '$timeend'  where userid = '$useridd' and completed = 'U'";
+                        // $result = ExecuteQuery($str);
                         header("location: rating.php?id=$bookingid&p_id=$carid");
                         
                     }

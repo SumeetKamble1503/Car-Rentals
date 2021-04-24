@@ -66,8 +66,8 @@
                     <?php 
                         // include 'functionsignup.php';
                         // session_start();
-                                
-                        $str = "SELECT * from cars where carid = $variable";
+                         
+                        $str = "SELECT call selectCar($variable)";
                         $result=ExecuteQuery($str);
                         $no_rows = mysqli_num_rows($result);
                         if($result){

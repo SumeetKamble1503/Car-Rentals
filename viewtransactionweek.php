@@ -63,7 +63,7 @@
             <div class="sorting2">
                     <div class="button2">
                         <b>
-                            <a href="viewtransaction.php" class="btn2 active2"> Total Expenditure (All Trips) : 
+                            <a href="viewtransaction.php" class="btn2 "> Total Expenditure (All Trips) : 
                                 <?php 
                                     $mysqli = new mysqli('localhost' ,'root','', 'accounts');
                                     $strr = "SELECT SUM(costoftrip) as cash FROM transaction where userid = '$variable'";
@@ -75,7 +75,7 @@
                             </a>  
                         </b>   
                             <a href="viewtransactiontoday.php" class="btn2 ">Today</a>
-                            <a href="viewtransactionweek.php" class="btn2 ">Last Week</a> 
+                            <a href="viewtransactionweek.php" class="btn2 active2">Last Week</a> 
                             <a href="viewtransactionmonth.php" class="btn2 ">Last month</a>                                                            
                     </div>
             </div>
@@ -92,8 +92,7 @@
                         $variable = $rowk['id'];
 
                         
-
-                        $strr = "call displayallUserTransactions($variable)";
+                        $strr = "call displayTransactionsAccToWeek($variable)";
                         $resultr = ExecuteQuery($strr);
                         $no_rows = mysqli_num_rows($resultr);
 
