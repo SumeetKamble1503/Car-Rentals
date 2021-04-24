@@ -16,7 +16,25 @@
 
         
 
-   
+    //     $username = $_SESSION['username'];
+        
+    //     $strk = "SELECT * from users where username = '$username' ";
+    //     $resultk = ExecuteQuery($strk);
+    //     $rowk = mysqli_fetch_assoc($resultk);
+    //     $useridd = $rowk['id'];
+
+    // }
+    // else{
+    
+    //     $mysqli = new mysqli('localhost' ,'root','', 'accounts');
+    //     $username = $_SESSION['username'];
+        
+    //     $strk = "SELECT * from users where username = '$username' ";
+    //     $resultk = ExecuteQuery($strk);
+    //     $rowk = mysqli_fetch_assoc($resultk);
+    //     $useridd = $rowk['id'];
+
+    // }
     
 
     
@@ -36,13 +54,12 @@
 
         //echo $rating;
         $avg = $row['average'];
-        echo $avg;
+        //echo $avg;
 
 
         $sql = "UPDATE cars SET carrating = $avg WHERE carid = $carid";
         $result = ExecuteQuery($sql);
 
-        die();
         header("location: viewtransaction.php");
 
     }
@@ -65,11 +82,7 @@
                     <h3>Please Rate Your Trip</h3>
                 </div>
             <hr class="new">
-                    <!-- <div>
-                        <label>Name</label>
-                        <input type="text" name="name">
-                    </div> -->
-            
+                    
                     <div class="rateyo" id= "rating"
                         data-rateyo-rating="4"
                         data-rateyo-num-stars="5"
