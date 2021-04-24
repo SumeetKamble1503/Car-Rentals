@@ -42,6 +42,24 @@
                     </ul>
             </div>
             <h1>ADMIN HOMEPAGE</h1>
+
+            <div class="sorting">
+                    <div class="button1">
+                        <b>
+                            <a href="admin.php" class="btn1 active">Total Money Earned : 
+                                <?php 
+                                    $mysqli = new mysqli('localhost' ,'root','', 'accounts');
+                                    $strr = "SELECT SUM(costoftrip) as cash FROM transaction";
+                                    $resultr = ExecuteQuery($strr);
+                                    $row = mysqli_fetch_assoc($resultr);
+                                    $cash = $row['cash'];
+                                    echo $cash;
+                                ?>
+                            </a>  
+                        </b>                                                              
+                    </div>
+            </div>
+
             <div class="lists">
                 <div class="carlist">
                     <?php   
