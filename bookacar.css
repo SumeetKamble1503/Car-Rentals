@@ -96,3 +96,27 @@ hr{
 }
 
 
+.button1{
+    position: absolute;
+    top: 11.5%;
+    left: 75%;
+    transform: translate(-50%,-50%);
+}
+
+.btn1{
+    margin-left: 10px;
+    border: 1px solid white;
+    padding: 10px 30px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn1:hover{
+    color: black;
+    background-color: white;
+}
+
+.active{
+    color: black;
+    background-color: white;
+}

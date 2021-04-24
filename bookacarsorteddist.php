@@ -38,20 +38,22 @@
                         <li><a href="logout.php"> Logout </a></li>
                     </ul>
             </div>
+
             <div class="sorting">
                     <div class="button1">
-                        <a href="bookacar.php" class="btn1 active">Default</a>
+                        <a href="bookacar.php" class="btn1">Default</a>
                         <a href="bookacarsorted.php" class="btn1">Sort by Rating</a>
-                        <a href="bookacarsorteddist.php" class="btn1">Sort by Distance</a>                                                                    
+                        <a href="bookacarsorteddist.php" class="btn1 active">Sort by Distance</a>                                                                    
                     </div>
             </div>
+
             <div class="lists">
                 <div class="carlist">
                     <?php 
                         include 'functionsignup.php';
                         session_start();
                                 
-                        $str = "SELECT * from cars where availability = 'A'";
+                        $str = "SELECT * from cars where availability = 'A' ORDER BY cardist DESC";
                         $result=ExecuteQuery($str);
                         // $row = mysqli_fetch_assoc($result);
                         $no_rows = mysqli_num_rows($result);
