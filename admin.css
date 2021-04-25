@@ -171,3 +171,21 @@ hr{
     /* display: inline-block; */
     top: 100px;
 }
+
+.bookbtn{
+    background-color: rgb(168, 0, 0);
+    padding: 10px 30px;
+    margin: 10px 30px;
+    color: white;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+
+.bookbtn:hover{
+    background-color: rgb(101, 189, 0);
+    padding: 10px 30px;
+    margin: 10px 30px;
+    color: white;
+    border-radius: 10px;
+    border: 1px solid white;
+}

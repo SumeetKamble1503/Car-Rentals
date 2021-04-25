@@ -26,7 +26,6 @@
         <link rel = "stylesheet" href = "bookacar.css">
         <link rel = "stylesheet" href = "profile.css">
         <link rel="icon" href="pp.png" type="image/png" />
-        <!-- <link rel = "stylesheet" href = "admin.css"> -->
         <link rel="stylesheet" href="signup.css" type="text/css">
     </head> 
     <body>
@@ -49,18 +48,13 @@
             <div class="bookedinfo">
                 <?php 
                     include 'functionsignup.php';
-                    // session_start();
-                    
                     $username = $_SESSION['username'];
-                    // echo $username;
-
+                    
                     $str = "SELECT * from users where username = '$username' ";
                     $result=ExecuteQuery($str);
                     $row = mysqli_fetch_assoc($result);
-                    // $no_rows = mysqli_num_rows($result);
 
                     $newid = $row['id'];
-                    //echo $newid;
                     
                     $strr = "SELECT * from alltrips where userid = '$newid' and completed='U'";
                     $resultr = ExecuteQuery($strr);
@@ -81,17 +75,6 @@
                             $str = "UPDATE cars SET availability ='B' where carid='$variable'";
                             $result = ExecuteQuery($str);
 
-
-                            // $str = "SELECT * from bookedcars where carid = '$variable'";
-                            // $result = ExecuteQuery($str);
-                            // $row = mysqli_fetch_assoc($result);
-                            
-                            // $bookingid = $row['bookingid'];
-
-                            // // echo $bookingid;
-
-                            // $str = "INSERT INTO trips ( bookingid , completed )" . "VALUES ('$bookingid' ,'U')";
-                            // $result=ExecuteQuery($str);
                             header("location: profile.php");
                         }
                         else{

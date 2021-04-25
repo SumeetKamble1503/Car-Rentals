@@ -18,6 +18,7 @@
 ?>
 <html>
     <head>
+        <!-- <link rel = "stylesheet" href = "bookacar.css"> -->
         <link rel = "stylesheet" href = "admin.css">
         <link rel="icon" href="pp.png" type="image/png" />
     </head> 
@@ -69,8 +70,11 @@
                                 echo " <b>|</b> ";
                                 echo "Discount : ";
                                 echo $discount;
+                                echo " <b>|</b> ";
+                                echo "<a class='bookbtn' href='deleteoffers.php?id=$offername'> <b> Delete </b> </a>";
                                 echo "<br/><br/>";
                                 echo "</div>";
+                                
                             }
                         }
                         
