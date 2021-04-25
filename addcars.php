@@ -1,5 +1,6 @@
 <link rel = "stylesheet" href = "addcars.css">
 <link rel = "stylesheet" href = "admin.css">
+<link rel="icon" href="pp.png" type="image/png" />
 <?php 
     include 'functionsignup.php';
     session_start(); 

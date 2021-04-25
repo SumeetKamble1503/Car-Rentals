@@ -43,6 +43,7 @@
         <link rel = "stylesheet" href = "applyoffers.css">
         <link rel = "stylesheet" href = "profile.css">
         <link rel = "stylesheet" href = "confirmpayment.css">
+        <link rel="icon" href="pp.png" type="image/png" />
         
         <!-- <link rel="stylesheet" href="signup.css" type="text/css"> -->
         

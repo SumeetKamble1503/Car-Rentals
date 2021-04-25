@@ -20,6 +20,7 @@
         <link rel = "stylesheet" href = "title.css">
         <link rel = "stylesheet" href = "profile.css">
         <link rel = "stylesheet" href = "bookacar.css">
+        <link rel="icon" href="pp.png" type="image/png" />
     </head> 
     <body>
         <div class="mainpage">

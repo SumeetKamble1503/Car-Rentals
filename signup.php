@@ -81,22 +81,19 @@
 
 <html>
     <head>
-        <title>
-
-        </title>
-    </head>
-    <body>
+            <link rel="icon" href="pp.png" type="image/png" />
             <link href="//db.onlinewebfonts.com/c/a4e256ed67403c6ad5d43937ed48a77b?family=Core+Sans+N+W01+35+Light" rel="stylesheet" type="text/css"/>
             <link rel="stylesheet" href="signup.css" type="text/css">
             <link rel="stylesheet" href="navbar.css" type="text/css">
+    </head>
+    <body>
+            
+            
             <div class="navbar">
                     <ul>
                         <li><a href="homepage.html"> Home </a></li>
                         <li><a href="login.php"> Login </a></li>
                         <li class="active"><a href="signup.php"> Sign Up </a></li>
-                        <li><a href="#"> About Us </a></li>
-                        <li><a href="#"> Conatact Us </a></li>
-                        <li><a href="#"> Developer Team</a></li>
                     </ul>
             </div>
 

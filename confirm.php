@@ -15,7 +15,7 @@
         $strk = "SELECT * from users where username = '$username' ";
         $resultk = ExecuteQuery($strk);
         $rowk = mysqli_fetch_assoc($resultk);
-        $variable = $rowk['id'];
+        //$variable = $rowk['id'];
 
     }
     if($_SESSION['loggedin'] == true){
@@ -38,6 +38,7 @@
         <link rel = "stylesheet" href = "bookacar.css">
         <link rel = "stylesheet" href = "profile.css">
         <link rel = "stylesheet" href = "confirm.css">
+        <link rel="icon" href="pp.png" type="image/png" />
         <!-- <link rel="stylesheet" href="signup.css" type="text/css"> -->
         
     </head> 
@@ -64,11 +65,11 @@
             <div class="lists">
                 <div class="carlist">
                     <?php 
-                        // include 'functionsignup.php';
+                        //include 'functionsignup.php';
                         // session_start();
                          
-                        $str = "SELECT call selectCar($variable)";
-                        $result=ExecuteQuery($str);
+                        $str = "call selectCar('$variable')";
+                        $result = ExecuteQuery($str);
                         $no_rows = mysqli_num_rows($result);
                         if($result){
                             $row = mysqli_fetch_assoc($result);

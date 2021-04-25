@@ -19,6 +19,7 @@
 <html>
     <head>
         <link rel = "stylesheet" href = "admin.css">
+        <link rel="icon" href="pp.png" type="image/png" />
     </head> 
     <body>
         <div class="mainpage">
